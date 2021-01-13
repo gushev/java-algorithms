@@ -1,11 +1,9 @@
-package unionfind.quickfind;
+package unionfind.algorithms;
 
-import unionfind.UnionFind;
-
-public class QuickFind implements UnionFind {
+public class QuickUnion implements UnionFind {
   private final int[] elements;
 
-  public QuickFind(int numberOfElements) {
+  public QuickUnion(int numberOfElements) {
     elements = new int[numberOfElements];
 
     for (int i = 0; i < numberOfElements; i++) {
@@ -15,19 +13,22 @@ public class QuickFind implements UnionFind {
 
   @Override
   public boolean connected(int p, int q) {
-    return elements[p] == elements[q];
+    return getRoot(p) == getRoot(q);
   }
 
   @Override
   public void union(int p, int q) {
-    int firstGroup = elements[p];
-    int secondGroup = elements[q];
+    int firstGroupRoot = getRoot(p);
+    int secondGroupRoot = getRoot(q);
+    elements[firstGroupRoot] = secondGroupRoot;
+  }
 
-    for (int i = 0; i < elements.length; i++) {
-      if (elements[i] == firstGroup) {
-        elements[i] = secondGroup;
-      }
+  private int getRoot(int element) {
+    while (element != elements[element]) {
+      element = elements[element];
     }
+
+    return element;
   }
 
   @Override

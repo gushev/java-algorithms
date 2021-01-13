@@ -1,5 +1,7 @@
 package unionfind;
 
+import unionfind.algorithms.UnionFind;
+
 import java.util.Random;
 
 public class Unifier {

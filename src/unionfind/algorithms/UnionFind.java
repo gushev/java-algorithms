@@ -1,4 +1,4 @@
-package unionfind;
+package unionfind.algorithms;
 
 public interface UnionFind {
   boolean connected(int p, int q);
