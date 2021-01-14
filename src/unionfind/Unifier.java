@@ -16,8 +16,8 @@ public class Unifier {
     for (int i = 0; i < count; i++) {
       int first = getRandomElement();
       int second =  getRandomElement();
-      algorithm.union(first, second);
       System.out.printf("Union created between: %d and %d%n", first, second);
+      algorithm.union(first, second);
     }
   }
 
