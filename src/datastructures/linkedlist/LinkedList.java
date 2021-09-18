@@ -25,13 +25,7 @@ public class LinkedList<T> {
       return returnData;
     }
 
-    Node<T> current = head.getNext();
-
-    if (current.getNext() == null) {
-      head.setNext(null);
-      return current.getData();
-    }
-
+    Node<T> current = head;
     Node<T> next;
 
     while (true) {
