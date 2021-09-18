@@ -13,6 +13,39 @@ public class LinkedList<T> {
     }
   }
 
+  public T removeLast() {
+
+    if (head == null) {
+      return null;
+    }
+
+    if (head.getNext() == null) {
+      T returnData = head.getData();
+      head = null;
+      return returnData;
+    }
+
+    Node<T> current = head.getNext();
+
+    if (current.getNext() == null) {
+      head.setNext(null);
+      return current.getData();
+    }
+
+    Node<T> next;
+
+    while (true) {
+      next = current.getNext();
+
+      if (next.getNext() == null) {
+        current.setNext(null);
+        return next.getData();
+      }
+
+      current = next;
+    }
+  }
+
   public void printList() {
     if (head == null) {
       return;
