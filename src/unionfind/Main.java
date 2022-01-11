@@ -5,8 +5,8 @@ import unionfind.algorithms.*;
 public class Main {
   public static void main(String[] args) {
     UnionFind algorithm = ImplementationCreator.create(QuickUnionCompression.class, 20);
-    Unifier unifier = new Unifier(algorithm);
-    unifier.makeRandomUnions(15);
+    Uniter uniter = new Uniter(algorithm);
+    uniter.makeRandomUnions(15);
     algorithm.displayElements();
 
     System.out.println(algorithm.connected(1, 10));

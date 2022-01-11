@@ -4,11 +4,11 @@ import unionfind.algorithms.UnionFind;
 
 import java.util.Random;
 
-public class Unifier {
+public class Uniter {
   private final UnionFind algorithm;
   private final Random random = new Random();
 
-  public Unifier(UnionFind algorithm) {
+  public Uniter(UnionFind algorithm) {
     this.algorithm = algorithm;
   }
 
