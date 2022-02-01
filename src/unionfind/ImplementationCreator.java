@@ -13,9 +13,7 @@ public class ImplementationCreator {
         | IllegalAccessException
         | InstantiationException
         | InvocationTargetException e) {
-      e.printStackTrace();
+      throw new RuntimeException("Error creating an instance");
     }
-
-    throw new RuntimeException("Error creating an instance");
   }
 }
