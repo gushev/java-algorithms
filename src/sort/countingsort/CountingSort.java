@@ -11,7 +11,7 @@ public class CountingSort {
     int[] count = new int[range];
     int[] output = new int[input.length];
 
-    for(int i = 0; i < input.length; i++) {
+    for (int i = 0; i < input.length; i++) {
       count[input[i] - min]++;
     }
 
