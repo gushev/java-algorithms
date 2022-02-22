@@ -2,9 +2,13 @@ package datastructures.heap.implementation;
 
 public class MaxHeap extends Heap {
 
+  public int deleteMax() {
+    return deleteFirst();
+  }
+
   @Override
   protected void heapify() {
-
+    // todo
   }
 
   @Override
@@ -20,7 +24,21 @@ public class MaxHeap extends Heap {
   }
 
   @Override
-  protected void heapifyDown() {
+  protected void heapifyDown(int i) {
+    int nodeValue = node(i);
+    if (left(i) > right(i) && left(i) > node(i)) {
+      elements.set(i, left(i));
+      elements.set(leftIndex(i), nodeValue);
+      heapifyDown(leftIndex(i));
+    } else if (right(i) > node(i)) {
+      elements.set(i, right(i));
+      elements.set(rightIndex(i), nodeValue);
+      heapifyDown(rightIndex(i));
+    }
+  }
 
+  @Override
+  protected int heapifyInt() {
+    return Integer.MIN_VALUE;
   }
 }

@@ -26,16 +26,36 @@ public abstract class Heap {
     heapifyUp(elements.size() - 1);
   }
 
+  public int deleteFirst() {
+    int first = elements.get(0);
+    elements.set(0, elements.get(elements.size() - 1));
+    heapifyDown(0);
+    deleteLast();
+    return first;
+  }
+
+  public int deleteLast() {
+    int last = elements.get(elements.size() - 1);
+    elements.remove(elements.size() - 1);
+    return last;
+  }
+
   public int node(int i) {
     return elements.get(i);
   }
 
   public int left(int i) {
-    return elements.get(leftIndex(i));
+    if (leftIndex(i) < elements.size()) {
+      return elements.get(leftIndex(i));
+    }
+    return heapifyInt();
   }
 
-  public int right(int i) {
-    return elements.get(rightIndex(i));
+  public Integer right(int i) {
+    if (rightIndex(i) < elements.size()) {
+      return elements.get(rightIndex(i));
+    }
+    return heapifyInt();
   }
 
   public int parent(int i) {
@@ -85,5 +105,7 @@ public abstract class Heap {
 
   protected abstract void heapifyUp(int i);
 
-  protected abstract void heapifyDown();
+  protected abstract void heapifyDown(int i);
+
+  protected abstract int heapifyInt();
 }
