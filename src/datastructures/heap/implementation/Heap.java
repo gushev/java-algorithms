@@ -12,11 +12,6 @@ public abstract class Heap {
     super();
   }
 
-  public Heap(List<Integer> elements) {
-    this.elements = elements;
-    heapify();
-  }
-
   public Heap(int[] elements) {
     Arrays.stream(elements).forEach(this::insert);
   }
@@ -100,8 +95,6 @@ public abstract class Heap {
   protected int parentIndex(int i) {
     return (i - 1) / 2;
   }
-
-  protected abstract void heapify();
 
   protected abstract void heapifyUp(int i);
 
