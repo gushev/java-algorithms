@@ -2,7 +2,7 @@ package datastructures.heap.implementation;
 
 public class MinHeap extends Heap {
 
-  public int deleteMax() {
+  public int deleteMin() {
     return deleteFirst();
   }
 
